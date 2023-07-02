@@ -56,7 +56,8 @@ def sort_tasks(build_name: str, tasks_data: dict, builds_data: dict) -> List[str
 
 
 @app.post("/get_tasks")
-def get_tasks(build_name: str):
+def get_tasks(request_data: dict):
+    build_name = request_data.get("build")
     tasks_data = load_tasks()
     builds_data = load_builds()
 
